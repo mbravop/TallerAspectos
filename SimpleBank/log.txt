@@ -1,0 +1,5 @@
+Tipo de proceso, hora 
+Transacción , 18:19:2
+Retiro , 18:20:30
+Transacción , 18:20:38
+Retiro , 18:20:48

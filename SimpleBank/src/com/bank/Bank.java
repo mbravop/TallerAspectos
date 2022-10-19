@@ -2,6 +2,10 @@ package com.bank;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Date;
 
 public class Bank {
 	static final int EXIT = 5;
@@ -16,6 +20,8 @@ public class Bank {
     }
 
     public static void main(String[] args) {
+    	
+		
         int opcion = 0;
         initBank();
         while(opcion != EXIT){
@@ -92,6 +98,18 @@ public class Bank {
             System.out.println(u);
         }
         System.out.println("------------------------------------");
+    }
+    
+    public static void guardarDatos(String transaccion) {
+    	try(BufferedWriter br=new BufferedWriter(new FileWriter("log.txt",true))){
+    		
+    		Date time= new Date();
+    		br.write(transaccion+", "+time.getHours()+":"+time.getMinutes()+":"+time.getSeconds()+"\n");
+
+    	}catch(IOException e) {
+    		System.out.println("error al escribir");
+    	}
+    	
     }
     
 }
